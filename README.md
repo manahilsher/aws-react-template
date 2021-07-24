@@ -4,7 +4,7 @@ To make things easier. Includes AppSync, Cognito, and DynamoDB. Includes redux, 
 
 ## Steps
 
-#### Clone this repo.
+#### Use this repo as a template to build a new one.
 
 #### Run the following commands:
 
