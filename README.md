@@ -6,9 +6,9 @@ To make things easier. Includes AppSync, Cognito, and DynamoDB. Includes redux, 
 
 #### Use this repo as a template to build a new one.
 
-#### Delete the amplify folder.
+#### Delete the `amplify` and `graphql` folders.
 
-It is using the data from this template, so you want to get rid of it to input your own.
+They are using the data from this template, so you want to get rid of them to input your own.
 
 ### Run the following commands:
 
