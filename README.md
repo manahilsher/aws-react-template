@@ -8,9 +8,9 @@ To make things easier.
 
 #### Run the following commands:
 
-`npm install`
-`amplify init` (yes to above configuration, profile, default)
-`amplify add api` (GraphQL, edit the schema now, vs code)
+- `npm install`
+- `amplify init` (yes to above configuration, profile, default)
+- `amplify add api` (GraphQL, edit the schema now, vs code)
 
 #### Change the schema as you desire. At the moment, the code works with the Item schema (Attribute not necessary):
 
@@ -31,9 +31,9 @@ type Attribute @model @key(name: "byItem", fields: ["itemID"]) {
 
 #### Run the following commands:
 
-`amplify add auth` (default configuration, username)
-`amplify update auth` (Create or update Cognito user pool groups)
-`amplify push`
+- `amplify add auth` (default configuration, username)
+- `amplify update auth` (Create or update Cognito user pool groups)
+- `amplify push`
 
 #### Hosting:
 
