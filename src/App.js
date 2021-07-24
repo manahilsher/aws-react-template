@@ -1,25 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './App.scss';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
+import { Hub, Logger } from 'aws-amplify';
 
-function App() {
+import Home from './pages/Home';
+import Item from './pages/Item';
+import Profile from './pages/Profile';
+import Login from './pages/Login';
+import Header from './components/Header';
+import Footer from './components/Footer';
+
+const logger = new Logger('Logger', 'INFO');
+const listener = data => {
+  switch (data.payload.event) {
+    case 'signIn':
+      logger.info('user signed in');
+      break;
+    case 'signUp':
+      logger.info('user signed up');
+      break;
+    case 'signOut':
+      logger.info('user signed out');
+      break;
+    case 'signIn_failure':
+      logger.info('user sign in failed');
+      break;
+    case 'configured':
+      logger.info('the Auth module is configured');
+      break;
+    default:
+      logger.error('Something went wrong, look at data object', data);
+  }
+};
+
+const App = () => {
+  Hub.listen('auth', listener);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <BrowserRouter>
+        <Header />
+        <Switch>
+          <Route path='/' exact component={Home}></Route>
+          <Route path='/item/:id' exact component={Item}></Route>
+          <Route path='/profile' exact component={Profile}></Route>
+          <AmplifyAuthenticator>
+            <Route path='/login' exact component={Login}></Route>
+          </AmplifyAuthenticator>
+        </Switch>
+        <Footer />
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
