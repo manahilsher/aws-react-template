@@ -1,6 +1,6 @@
 # AWS-React Template
 
-To make things easier.
+To make things easier. Includes AppSync, Cognito, and DynamoDB. Includes redux, routing, and scss for styling.
 
 ## Steps
 
