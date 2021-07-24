@@ -1,0 +1,12 @@
+type Item @model {
+  id: ID!
+  name: String!
+  attributes: [Attribute] @connection(keyName: "byItem", fields: ["id"])
+}
+
+type Attribute @model @key(name: "byItem", fields: ["itemID"]) {
+  id: ID!
+  title: String!
+  itemID: ID!
+  item: Item @connection(fields: ["itemID"])
+}

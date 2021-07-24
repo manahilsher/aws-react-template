@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# AWS-React Template
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To make things easier.
 
-## Available Scripts
+## Steps
 
-In the project directory, you can run:
+#### Clone this repo.
 
-### `yarn start`
+#### Run the following commands:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+`npm install`
+`amplify init` (yes to above configuration, profile, default)
+`amplify add api` (GraphQL, edit the schema now, vs code)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### Change the schema as you desire. At the moment, the code works with the Item schema (Attribute not necessary):
 
-### `yarn test`
+```
+type Item @model {
+    id: ID!
+    name: String!
+    attributes: [Attribute] @connection(keyName: "byItem", fields: ["id"])
+}
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+type Attribute @model @key(name: "byItem", fields: ["itemID"]) {
+    id: ID!
+    title: String!
+    itemID: ID!
+    item: Item @connection(fields: ["itemID"])
+}
+```
 
-### `yarn build`
+#### Run the following commands:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`amplify add auth` (default configuration, username)
+`amplify update auth` (Create or update Cognito user pool groups)
+`amplify push`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Hosting:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Go to [https://console.aws.amazon.com/amplify]
+2. Click your app
+3. Click Frontend environments
+4. Click Github (or your repo of choice)
+5. Click Connect branch
+6. Choose your branch of choice
+7. Choose your role or create one
+8. Click next
+9. Click Save and deploy
