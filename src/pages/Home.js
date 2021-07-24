@@ -3,18 +3,18 @@ import { connect } from 'react-redux';
 
 import {
   fetchItemsThunk,
-  subscribeItemsListener,
-  unsubscribeItemsListener
+  subscribeItems,
+  unsubscribeItems
 } from '../store/actions';
 
 class Home extends React.Component {
   async componentDidMount() {
     await this.props.fetchItemsThunk();
-    await this.props.subscribeItemsListener();
+    await this.props.subscribeItems();
   }
 
   async componentWillUnmount() {
-    await this.props.unsubscribeItemsListener();
+    await this.props.unsubscribeItems();
   }
 
   renderItems = () => {
@@ -42,6 +42,6 @@ const mapState = state => {
 
 export default connect(mapState, {
   fetchItemsThunk,
-  subscribeItemsListener,
-  unsubscribeItemsListener
+  subscribeItems,
+  unsubscribeItems
 })(Home);
