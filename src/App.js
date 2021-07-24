@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.scss';
+import './styles/App.scss';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
 import { Hub, Logger } from 'aws-amplify';
