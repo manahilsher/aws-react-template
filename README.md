@@ -48,30 +48,6 @@ type Attribute @model @key(name: "byItem", fields: ["itemID"]) {
 5. Click Connect branch
 6. Choose your branch of choice
 7. Choose your role or create one
-8. Add the amplify.yml file to the root directory of your project, changing the commands to `npm` as follows:
-```
-version: 1
-backend:
-  phases:
-    build:
-      commands:
-        - '# Execute Amplify CLI with the helper script'
-        - amplifyPush --simple
-frontend:
-  phases:
-    preBuild:
-      commands:
-        - npm install
-    build:
-      commands:
-        - npm run build
-  artifacts:
-    baseDirectory: build
-    files:
-      - '**/*'
-  cache:
-    paths:
-      - node_modules/**/*
-```
+8. Don't need to worry about the amplify.yml file as it's already in this repo for your convenience. Edit as you please.
 9. Click Next
 10. Click Save and deploy
