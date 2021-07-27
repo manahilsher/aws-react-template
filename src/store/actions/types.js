@@ -1,6 +1,6 @@
-export const CREATE_ITEM = 'CREATE_ITEM';
-export const FETCH_ITEMS = 'FETCH_ITEMS';
-export const FETCH_ITEM = 'FETCH_ITEM';
-export const UNSELECT_ITEM = 'UNSELECT_ITEM';
-export const UPDATE_ITEM = 'UPDATE_ITEM';
-export const DELETE_ITEM = 'DELETE_ITEM';
+export const CREATE_THING = 'CREATE_THING';
+export const FETCH_THINGS = 'FETCH_THINGS';
+export const FETCH_THING = 'FETCH_THING';
+export const UNSELECT_THING = 'UNSELECT_THING';
+export const UPDATE_THING = 'UPDATE_THING';
+export const DELETE_THING = 'DELETE_THING';

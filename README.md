@@ -18,20 +18,20 @@ It is using the data from this template, so you want to get rid of it to input y
 - `amplify update auth` (Create or update Cognito user pool groups)
 - `amplify add api` (GraphQL, edit the schema now, vs code)
 
-#### Change the schema as you desire. The path is `amplify/backend/api/awsreacttemplate/schema.graphql`. At the moment, the code works with Item (Attribute not necessary):
+#### Change the schema as you desire. The path is `amplify/backend/api/awsreacttemplate/schema.graphql`. At the moment, the code works with Thing (Attribute not necessary):
 
 ```
-type Item @model {
+type Thing @model {
     id: ID!
     name: String!
-    attributes: [Attribute] @connection(keyName: "byItem", fields: ["id"])
+    attributes: [Attribute] @connection(keyName: "byThing", fields: ["id"])
 }
 
-type Attribute @model @key(name: "byItem", fields: ["itemID"]) {
+type Attribute @model @key(name: "byThing", fields: ["thingID"]) {
     id: ID!
     title: String!
-    itemID: ID!
-    item: Item @connection(fields: ["itemID"])
+    thingID: ID!
+    thing: Thing @connection(fields: ["thingID"])
 }
 ```
 

@@ -1,16 +1,16 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateItem = /* GraphQL */ `
-  subscription OnCreateItem {
-    onCreateItem {
+export const onCreateThing = /* GraphQL */ `
+  subscription OnCreateThing {
+    onCreateThing {
       id
       name
       attributes {
         items {
           id
           title
-          itemID
+          thingID
           createdAt
           updatedAt
         }
@@ -21,16 +21,16 @@ export const onCreateItem = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateItem = /* GraphQL */ `
-  subscription OnUpdateItem {
-    onUpdateItem {
+export const onUpdateThing = /* GraphQL */ `
+  subscription OnUpdateThing {
+    onUpdateThing {
       id
       name
       attributes {
         items {
           id
           title
-          itemID
+          thingID
           createdAt
           updatedAt
         }
@@ -41,16 +41,16 @@ export const onUpdateItem = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteItem = /* GraphQL */ `
-  subscription OnDeleteItem {
-    onDeleteItem {
+export const onDeleteThing = /* GraphQL */ `
+  subscription OnDeleteThing {
+    onDeleteThing {
       id
       name
       attributes {
         items {
           id
           title
-          itemID
+          thingID
           createdAt
           updatedAt
         }
@@ -66,8 +66,8 @@ export const onCreateAttribute = /* GraphQL */ `
     onCreateAttribute {
       id
       title
-      itemID
-      item {
+      thingID
+      thing {
         id
         name
         attributes {
@@ -86,8 +86,8 @@ export const onUpdateAttribute = /* GraphQL */ `
     onUpdateAttribute {
       id
       title
-      itemID
-      item {
+      thingID
+      thing {
         id
         name
         attributes {
@@ -106,8 +106,8 @@ export const onDeleteAttribute = /* GraphQL */ `
     onDeleteAttribute {
       id
       title
-      itemID
-      item {
+      thingID
+      thing {
         id
         name
         attributes {

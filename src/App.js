@@ -5,7 +5,7 @@ import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
 import { Hub, Logger } from 'aws-amplify';
 
 import Home from './pages/Home';
-import Item from './pages/Item';
+import Thing from './pages/Thing';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Header from './components/Header';
@@ -42,7 +42,7 @@ const App = () => {
         <Header />
         <Switch>
           <Route path='/' exact component={Home}></Route>
-          <Route path='/item/:id' exact component={Item}></Route>
+          <Route path='/thing/:id' exact component={Thing}></Route>
           <Route path='/profile' exact component={Profile}></Route>
           <AmplifyAuthenticator>
             <Route path='/login' exact component={Login}></Route>

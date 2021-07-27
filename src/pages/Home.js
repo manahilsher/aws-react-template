@@ -2,33 +2,33 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import {
-  fetchItemsThunk,
-  subscribeItems,
-  unsubscribeItems
+  fetchThingsThunk,
+  subscribeThings,
+  unsubscribeThings
 } from '../store/actions';
 
 class Home extends React.Component {
   async componentDidMount() {
-    await this.props.fetchItemsThunk();
-    await this.props.subscribeItems();
+    await this.props.fetchThingsThunk();
+    await this.props.subscribeThings();
   }
 
   async componentWillUnmount() {
-    await this.props.unsubscribeItems();
+    await this.props.unsubscribeThings();
   }
 
-  renderItems = () => {
-    let items = this.props.items.map(i => {
-      return <div key={i.id}>Item {i.id}</div>;
+  renderThings = () => {
+    let things = this.props.things.map(i => {
+      return <div key={i.id}>Thing {i.id}</div>;
     });
-    return items;
+    return things;
   };
 
   render() {
     return (
       <>
         <div>Home</div>
-        <div>{this.props.items ? this.renderItems() : null}</div>
+        <div>{this.props.things ? this.renderThings() : null}</div>
       </>
     );
   }
@@ -36,12 +36,12 @@ class Home extends React.Component {
 
 const mapState = state => {
   return {
-    items: state.itemsReducer.items
+    things: state.thingsReducer.things
   };
 };
 
 export default connect(mapState, {
-  fetchItemsThunk,
-  subscribeItems,
-  unsubscribeItems
+  fetchThingsThunk,
+  subscribeThings,
+  unsubscribeThings
 })(Home);

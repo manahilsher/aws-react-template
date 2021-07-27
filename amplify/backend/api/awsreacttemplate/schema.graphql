@@ -1,12 +1,12 @@
-type Item @model {
+type Thing @model {
   id: ID!
   name: String!
-  attributes: [Attribute] @connection(keyName: "byItem", fields: ["id"])
+  attributes: [Attribute] @connection(keyName: "byThing", fields: ["id"])
 }
 
-type Attribute @model @key(name: "byItem", fields: ["itemID"]) {
+type Attribute @model @key(name: "byThing", fields: ["thingID"]) {
   id: ID!
   title: String!
-  itemID: ID!
-  item: Item @connection(fields: ["itemID"])
+  thingID: ID!
+  thing: Thing @connection(fields: ["thingID"])
 }

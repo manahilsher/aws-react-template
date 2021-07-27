@@ -1,16 +1,16 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getItem = /* GraphQL */ `
-  query GetItem($id: ID!) {
-    getItem(id: $id) {
+export const getThing = /* GraphQL */ `
+  query GetThing($id: ID!) {
+    getThing(id: $id) {
       id
       name
       attributes {
         items {
           id
           title
-          itemID
+          thingID
           createdAt
           updatedAt
         }
@@ -21,13 +21,13 @@ export const getItem = /* GraphQL */ `
     }
   }
 `;
-export const listItems = /* GraphQL */ `
-  query ListItems(
-    $filter: ModelItemFilterInput
+export const listThings = /* GraphQL */ `
+  query ListThings(
+    $filter: ModelThingFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listItems(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listThings(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         name
@@ -46,8 +46,8 @@ export const getAttribute = /* GraphQL */ `
     getAttribute(id: $id) {
       id
       title
-      itemID
-      item {
+      thingID
+      thing {
         id
         name
         attributes {
@@ -71,8 +71,8 @@ export const listAttributes = /* GraphQL */ `
       items {
         id
         title
-        itemID
-        item {
+        thingID
+        thing {
           id
           name
           createdAt

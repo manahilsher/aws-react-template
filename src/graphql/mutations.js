@@ -1,19 +1,19 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createItem = /* GraphQL */ `
-  mutation CreateItem(
-    $input: CreateItemInput!
-    $condition: ModelItemConditionInput
+export const createThing = /* GraphQL */ `
+  mutation CreateThing(
+    $input: CreateThingInput!
+    $condition: ModelThingConditionInput
   ) {
-    createItem(input: $input, condition: $condition) {
+    createThing(input: $input, condition: $condition) {
       id
       name
       attributes {
         items {
           id
           title
-          itemID
+          thingID
           createdAt
           updatedAt
         }
@@ -24,19 +24,19 @@ export const createItem = /* GraphQL */ `
     }
   }
 `;
-export const updateItem = /* GraphQL */ `
-  mutation UpdateItem(
-    $input: UpdateItemInput!
-    $condition: ModelItemConditionInput
+export const updateThing = /* GraphQL */ `
+  mutation UpdateThing(
+    $input: UpdateThingInput!
+    $condition: ModelThingConditionInput
   ) {
-    updateItem(input: $input, condition: $condition) {
+    updateThing(input: $input, condition: $condition) {
       id
       name
       attributes {
         items {
           id
           title
-          itemID
+          thingID
           createdAt
           updatedAt
         }
@@ -47,19 +47,19 @@ export const updateItem = /* GraphQL */ `
     }
   }
 `;
-export const deleteItem = /* GraphQL */ `
-  mutation DeleteItem(
-    $input: DeleteItemInput!
-    $condition: ModelItemConditionInput
+export const deleteThing = /* GraphQL */ `
+  mutation DeleteThing(
+    $input: DeleteThingInput!
+    $condition: ModelThingConditionInput
   ) {
-    deleteItem(input: $input, condition: $condition) {
+    deleteThing(input: $input, condition: $condition) {
       id
       name
       attributes {
         items {
           id
           title
-          itemID
+          thingID
           createdAt
           updatedAt
         }
@@ -78,8 +78,8 @@ export const createAttribute = /* GraphQL */ `
     createAttribute(input: $input, condition: $condition) {
       id
       title
-      itemID
-      item {
+      thingID
+      thing {
         id
         name
         attributes {
@@ -101,8 +101,8 @@ export const updateAttribute = /* GraphQL */ `
     updateAttribute(input: $input, condition: $condition) {
       id
       title
-      itemID
-      item {
+      thingID
+      thing {
         id
         name
         attributes {
@@ -124,8 +124,8 @@ export const deleteAttribute = /* GraphQL */ `
     deleteAttribute(input: $input, condition: $condition) {
       id
       title
-      itemID
-      item {
+      thingID
+      thing {
         id
         name
         attributes {
