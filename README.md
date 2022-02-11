@@ -39,6 +39,8 @@ type Attribute @model @key(name: "byThing", fields: ["thingID"]) {
 
 - `amplify push`
 
+#### Make sure you add `amplify/team-provider-info.json` to .gitignore
+
 #### Hosting:
 
 1. Go to [https://console.aws.amazon.com/amplify]
